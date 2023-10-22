@@ -31,8 +31,8 @@ function CreateArea(props) {
     }
     async function sendData() {
         try {
-          //const res = await axios.post("http://localhost:4000/", {
-            await axios.post("https://keeper-app-backend-dyr1.onrender.com", {
+          const res = await axios.post("http://localhost:4000/", {
+            //await axios.post("https://keeper-app-backend-dyr1.onrender.com", {
             title: note.title,
             content: note.content
           });
@@ -48,13 +48,13 @@ function CreateArea(props) {
     return (
         <div>
             <form className="create-note">
-                {isCLicked
+                {/* {isCLicked
                     ? <input
                             onChange={handleChange}
                             value={note.title}
                             name="title"
                             placeholder="Title"/>
-                    : null}
+                    : null} */}
                 <textarea
                     onChange={handleChange}
                     onClick={handleClick}
@@ -62,7 +62,7 @@ function CreateArea(props) {
                     name="content"
                     placeholder="Take a note..."
                     rows={isCLicked
-                    ? 3
+                    ? 2
                     : 1}/>
                 <Zoom  in={isCLicked}>
                     <Fab onClick={addNote}><AddCircleOutlineIcon/></Fab>
