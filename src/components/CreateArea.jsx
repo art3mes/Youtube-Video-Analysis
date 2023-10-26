@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import Fab from '@mui/material/Fab';
 import Zoom from '@mui/material/Zoom';
 import axios from 'axios';
+import TroubleshootIcon from '@mui/icons-material/Troubleshoot';
 
 function CreateArea(props) {
     const [note,
@@ -36,7 +36,7 @@ function CreateArea(props) {
             title: note.title,
             content: note.content
           });
-          //console.log(res);
+          console.log(res);
         } catch (error) {
           console.error(error);
         }
@@ -60,12 +60,12 @@ function CreateArea(props) {
                     onClick={handleClick}
                     value={note.content}
                     name="content"
-                    placeholder="Take a note..."
+                    placeholder="Enter the URL of the youtube video"
                     rows={isCLicked
                     ? 2
                     : 1}/>
                 <Zoom  in={isCLicked}>
-                    <Fab onClick={addNote}><AddCircleOutlineIcon/></Fab>
+                    <Fab onClick={addNote}><TroubleshootIcon/></Fab>
                 </Zoom>
             </form>
         </div>

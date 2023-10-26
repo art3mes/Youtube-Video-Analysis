@@ -1,8 +1,7 @@
 //import React from "react";
 import React, { Fragment } from 'react';
-import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import Media from 'react-media';
-
+import AnalyticsIcon from '@mui/icons-material/Analytics';
 function Header() {
   return (
     <div>
@@ -13,11 +12,11 @@ function Header() {
           <Fragment>
             {matches.small ?
               <header className=' headerSmall'>
-                <h1 className='h1Small'><DriveFileRenameOutlineIcon/> Keeper</h1>
+                <h1 className='h1Small'><AnalyticsIcon/> Keeper</h1>
               </header> 
             :
               <header>
-                <h1><DriveFileRenameOutlineIcon/> Keeper</h1>
+                <h1><AnalyticsIcon/> BETA</h1>
               </header>
             }
             
