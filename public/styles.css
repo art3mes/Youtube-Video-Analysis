@@ -155,3 +155,13 @@ form.create-note button {
 .h1Small{
   font-size: 4rem;
 } 
+.mainContent{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
+}
+.main-screen-image img{
+  width:600px;
+}

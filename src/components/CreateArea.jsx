@@ -3,6 +3,7 @@ import Fab from '@mui/material/Fab';
 import Zoom from '@mui/material/Zoom';
 import axios from 'axios';
 import TroubleshootIcon from '@mui/icons-material/Troubleshoot';
+import IMAGE from "../components/tempImage.png";
 
 function CreateArea(props) {
     const [note,
@@ -46,15 +47,9 @@ function CreateArea(props) {
         setClick(true);
     }
     return (
-        <div>
+        <div className="mainContent">
+             <div className="main-screen-image"><img src={IMAGE} alt="Logo" /></div>
             <form className="create-note">
-                {/* {isCLicked
-                    ? <input
-                            onChange={handleChange}
-                            value={note.title}
-                            name="title"
-                            placeholder="Title"/>
-                    : null} */}
                 <textarea
                     onChange={handleChange}
                     onClick={handleClick}
