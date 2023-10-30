@@ -42,7 +42,7 @@ function CreateArea(props) {
           console.error(error);
         }
       }
-      
+      //PLEASE SOMEONE KILL ME IVE HAD ENOUGH, OHH BABY
     function handleClick() {
         setClick(true);
     }
