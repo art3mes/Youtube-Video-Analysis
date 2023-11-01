@@ -36,7 +36,7 @@ function CreateArea(props) {
         await axios.post("https://minor-project-backend-d9m5.onrender.com", {
             content: url.content
           });
-          console.log(res);
+        //   console.log(res);
         } catch (error) {
           console.error(error);
         }
