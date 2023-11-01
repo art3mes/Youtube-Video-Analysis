@@ -32,8 +32,8 @@ function CreateArea(props) {
     // }
     async function sendData() {
         try {
-          const res = await axios.post("http://localhost:3001/recieve", {
-            //await axios.post("https://keeper-app-backend-dyr1.onrender.com", {
+        //   const res = await axios.post("http://localhost:3001/recieve", {
+        await axios.post("https://minor-project-backend-d9m5.onrender.com", {
             content: url.content
           });
           console.log(res);
