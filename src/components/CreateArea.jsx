@@ -6,36 +6,35 @@ import TroubleshootIcon from '@mui/icons-material/Troubleshoot';
 import IMAGE from "../components/tempImage.png";
 
 function CreateArea(props) {
-    const [note,
-        setNote] = useState({title: "", content: ""});
+    const [url,
+        setURL] = useState({content: ""});
     const [isCLicked,
         setClick] = useState(false);
 
     function handleChange(event) {
         const {name, value} = event.target;
 
-        setNote((preValue) => {
+        setURL((preValue) => {
             return {
                 ...preValue,
                 [name]: value
             };
         });
     }
-    function addNote(event) {
-        if (note.title !== "") {
-            props.onAdd(note);
+    // function addNote(event) {
+    //     if (url.content !== "") {
+    //         props.onAdd(url);
             
-            sendData();
-        }
-        setNote({title: "", content: ""});
-        event.preventDefault();
-    }
+    //         sendData();
+    //     }
+    //     setURL({content: ""});
+    //     event.preventDefault();
+    // }
     async function sendData() {
         try {
-          const res = await axios.post("http://localhost:4000/", {
+          const res = await axios.post("http://localhost:3001/recieve", {
             //await axios.post("https://keeper-app-backend-dyr1.onrender.com", {
-            title: note.title,
-            content: note.content
+            content: url.content
           });
           console.log(res);
         } catch (error) {
@@ -53,14 +52,14 @@ function CreateArea(props) {
                 <textarea
                     onChange={handleChange}
                     onClick={handleClick}
-                    value={note.content}
+                    value={url.content}
                     name="content"
                     placeholder="Enter the URL of the youtube video"
                     rows={isCLicked
                     ? 2
                     : 1}/>
                 <Zoom  in={isCLicked}>
-                    <Fab onClick={addNote}><TroubleshootIcon/></Fab>
+                    <Fab onClick={sendData}><TroubleshootIcon/></Fab>
                 </Zoom>
             </form>
         </div>
