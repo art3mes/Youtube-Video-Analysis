@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import CreateArea from "./CreateArea";
-import axios from "axios";
+// import axios from "axios";
 
 function App() {
   //const [notes, setNotes] = useState([]); //empty array
