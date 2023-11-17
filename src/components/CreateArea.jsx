@@ -30,18 +30,38 @@ function CreateArea(props) {
     //     setURL({content: ""});
     //     event.preventDefault();
     // }
+    // async function sendData() {
+    //     try {
+    //   //const res = await axios.post("http://localhost:3001/recieve", {
+        
+    //     const res = await axios.post("http://localhost:8000/sentiment?URL=", {
+    //     //await axios.post("https://minor-project-backend-d9m5.onrender.com", {
+    //         content: url.content
+    //       });
+    //     console.log(res);
+    //     } catch (error) {
+    //       console.error(error);
+    //     }
+    //   }
     async function sendData() {
         try {
-      const res = await axios.post("http://localhost:3001/recieve", {
-        //await axios.post("https://minor-project-backend-d9m5.onrender.com", {
-            content: url.content
-          });
-        console.log(res);
+            const response = await axios.post("http://localhost:8000/sentiment?URL=", {
+                content: url.content
+            });
+
+            console.log("Response:", response.data);
         } catch (error) {
-          console.error(error);
+            console.error("Error:", error.message);
+
+            if (error.response) {
+                console.error("Response data:", error.response.data);
+                console.error("Response status:", error.response.status);
+                console.error("Response headers:", error.response.headers);
+            }
         }
-      }
-      //PLEASE SOMEONE KILL ME IVE HAD ENOUGH, OHH BABY
+    }
+
+      //PLEASE SOMEONE KILL ME IVE HAD ENOUGH
     function handleClick() {
         setClick(true);
     }
