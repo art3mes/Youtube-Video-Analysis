@@ -44,21 +44,21 @@ function CreateArea(props) {
     //     }
     //   }
     async function sendData() {
-        // try {
-        //     const response = await axios.post("http://localhost:8000/sentiment?URL=", {
-        //         content: url.content
-        //     });
+        try {
+            const response = await axios.post("http://localhost:8000/sentiment?URL=", {
+                content: url.content
+            });
 
-        //     console.log("Response:", response.data);
-        // } catch (error) {
-        //     console.error("Error:", error.message);
+            console.log("Response:", response.data);
+        } catch (error) {
+            console.error("Error:", error.message);
 
-        //     if (error.response) {
-        //         console.error("Response data:", error.response.data);
-        //         console.error("Response status:", error.response.status);
-        //         console.error("Response headers:", error.response.headers);
-        //     }
-        // }
+            if (error.response) {
+                console.error("Response data:", error.response.data);
+                console.error("Response status:", error.response.status);
+                console.error("Response headers:", error.response.headers);
+            }
+        }
     }
 
       //PLEASE SOMEONE KILL ME IVE HAD ENOUGH
