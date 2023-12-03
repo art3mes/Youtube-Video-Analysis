@@ -45,10 +45,10 @@ function CreateArea(props) {
     //   }
     async function sendData() {
         try {
-            const response = await axios.post("http://localhost:8000/sentiment?URL=", {
-                content: url.content
+            const response = await axios.get("http://localhost:8000/sentiment", {
+                params:{URL:url.content}
             });
-
+            console.log(url.content)
             console.log("Response:", response.data);
         } catch (error) {
             console.error("Error:", error.message);
