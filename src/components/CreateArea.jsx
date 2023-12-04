@@ -44,6 +44,10 @@ function CreateArea(props) {
                 title: {
                     text: "Semantic Analysis Result"
                 },
+                axisY: {
+                    includeZero: true,
+                    maximum: 100, // Set the maximum scale to 100
+                },
                 data: [{
                     indexLabelFontColor: "#5A5757",
                             indexLabelPlacement: "outside",

@@ -5,42 +5,11 @@ import CreateArea from "./CreateArea";
 // import axios from "axios";
 
 function App() {
-  //const [notes, setNotes] = useState([]); //empty array
-  // const baseURL="http://localhost:4000/data";
-  // //const baseURL="https://keeper-app-backend-dyr1.onrender.com/data"
-  // function addNote(newNote) {
-  //   setNotes((preValue) => {
-  //     return [...preValue, newNote];
-  //   });
-  // }
-  // React.useEffect(() => {
-  //   axios.get(baseURL).then((response) => {
-  //     setNotes(response.data);
-  //   });
-  // }, []);
 
-  // function deleteNote(id) {
-  //   setNotes((preValues) => {
-  //     return preValues.filter((noteItem, index) => {
-  //       return index !== id;
-  //     });
-  //   });
-  // }
   return (
     <div>
       <Header />
       <CreateArea />
-      {/* {notes.map((noteItem, index) => {
-        return (
-          <Note
-            key={index}
-            id={index}
-            title={noteItem.title}
-            content={noteItem.content}
-            onDeleteProp={deleteNote}
-          />
-        );
-      })} */}
       <Footer />
     </div>
   );

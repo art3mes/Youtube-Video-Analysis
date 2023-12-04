@@ -16,7 +16,7 @@ function Header() {
               </header> 
             :
               <header>
-                <h1><AnalyticsIcon/> BETA</h1>
+                <h1><AnalyticsIcon/> Comment Scope</h1>
               </header>
             }
             
