@@ -165,3 +165,12 @@ form.create-note button {
 .main-screen-image img{
   width:600px;
 }
+.result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.graph{
+  display: none;
+}

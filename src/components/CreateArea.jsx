@@ -1,55 +1,59 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Fab from '@mui/material/Fab';
 import Zoom from '@mui/material/Zoom';
 import axios from 'axios';
 import TroubleshootIcon from '@mui/icons-material/Troubleshoot';
 import IMAGE from "../components/tempImage.png";
 
+import CanvasJSReact from '@canvasjs/react-charts';
+//var CanvasJSReact = require('@canvasjs/react-charts');
+
+var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+
 function CreateArea(props) {
-    const [url,
-        setURL] = useState({content: ""});
-    const [isCLicked,
-        setClick] = useState(false);
+    const [url, setURL] = useState({ content: "" });
+    const [isClicked, setClicked] = useState(false);
+    const [responseResult, setResponseResult] = useState(null);
+    const [options,setOptions]=useState(null);
 
     function handleChange(event) {
-        const {name, value} = event.target;
+        const { name, value } = event.target;
 
-        setURL((preValue) => {
+        setURL((prevValue) => {
             return {
-                ...preValue,
+                ...prevValue,
                 [name]: value
             };
         });
     }
-    // function addNote(event) {
-    //     if (url.content !== "") {
-    //         props.onAdd(url);
-            
-    //         sendData();
-    //     }
-    //     setURL({content: ""});
-    //     event.preventDefault();
-    // }
-    // async function sendData() {
-    //     try {
-    //   //const res = await axios.post("http://localhost:3001/recieve", {
-        
-    //     const res = await axios.post("http://localhost:8000/sentiment?URL=", {
-    //     //await axios.post("https://minor-project-backend-d9m5.onrender.com", {
-    //         content: url.content
-    //       });
-    //     console.log(res);
-    //     } catch (error) {
-    //       console.error(error);
-    //     }
-    //   }
+
     async function sendData() {
         try {
             const response = await axios.get("http://localhost:8000/sentiment", {
-                params:{URL:url.content}
+                params: { URL: url.content }
             });
-            console.log(url.content)
-            console.log("Response:", response.data);
+            console.log(url.content);
+            console.log("Response:", response.data.Result);
+
+            // Update the state with the response data
+            setResponseResult(JSON.stringify(response.data.Result));
+            setOptions(
+                {animationEnabled: true,
+                        theme: "light2",
+                title: {
+                    text: "Semantic Analysis Result"
+                },
+                data: [{
+                    indexLabelFontColor: "#5A5757",
+                            indexLabelPlacement: "outside",
+                    type: "column",
+                    dataPoints: [
+                    { label: "Positive",  y: response.data.Result.positive },
+                    { label: "Neutral", y: response.data.Result.neutral  },
+                    { label: "Negative", y:response.data.Result.negative  }
+                    ]
+                }]}
+            )
         } catch (error) {
             console.error("Error:", error.message);
 
@@ -61,27 +65,30 @@ function CreateArea(props) {
         }
     }
 
-      //PLEASE SOMEONE KILL ME IVE HAD ENOUGH
     function handleClick() {
-        setClick(true);
+        setClicked(true);
     }
+
     return (
         <div className="mainContent">
-             <div className="main-screen-image"><img src={IMAGE} alt="Logo" /></div>
+            <div className="main-screen-image"><img src={IMAGE} alt="Logo" /></div>
             <form className="create-note">
                 <textarea
                     onChange={handleChange}
                     onClick={handleClick}
                     value={url.content}
                     name="content"
-                    placeholder="Enter the URL of the youtube video"
-                    rows={isCLicked
-                    ? 2
-                    : 1}/>
-                <Zoom  in={isCLicked}>
-                    <Fab onClick={sendData}><TroubleshootIcon/></Fab>
+                    placeholder="Enter the URL of the YouTube video"
+                    rows={isClicked ? 2 : 1}
+                />
+                <Zoom in={isClicked}>
+                    <Fab onClick={sendData}><TroubleshootIcon /></Fab>
                 </Zoom>
             </form>
+            <div className="result">
+                {/* Display the response result */}
+                {responseResult && <CanvasJSChart className="graph" options = {options}/>}
+            </div>
         </div>
     );
 }
