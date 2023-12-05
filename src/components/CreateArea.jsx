@@ -5,9 +5,7 @@ import axios from 'axios';
 import TroubleshootIcon from '@mui/icons-material/Troubleshoot';
 import IMAGE from "../components/tempImage.png";
 import EmbeddedVideo from './EmbeddedVideo';
-
 import CanvasJSReact from '@canvasjs/react-charts';
-//var CanvasJSReact = require('@canvasjs/react-charts');
 
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
@@ -91,7 +89,6 @@ function CreateArea(props) {
                 </Zoom>
             </form>
             <div className="result">
-                {/* Display the response result */}
                 {responseResult && <div><EmbeddedVideo videoUrl={url.content} /><CanvasJSChart options = {options}/></div>}
             </div>
         </div>
