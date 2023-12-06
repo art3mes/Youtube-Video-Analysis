@@ -41,9 +41,7 @@ footer {
   flex-direction: row;
   padding: 15px;
 }
-/* footer p {
-  color: rgb(47, 47, 47);
-} */
+
 .refreshButton {
   padding: 15px;
   display: flex;
