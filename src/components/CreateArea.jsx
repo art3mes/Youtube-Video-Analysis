@@ -3,7 +3,7 @@ import Fab from '@mui/material/Fab';
 import Zoom from '@mui/material/Zoom';
 import axios from 'axios';
 import TroubleshootIcon from '@mui/icons-material/Troubleshoot';
-import IMAGE from "../components/tempImage.png";
+import IMAGE from "../components/mainImage.png";
 import EmbeddedVideo from './EmbeddedVideo';
 import CanvasJSReact from '@canvasjs/react-charts';
 
