@@ -40,7 +40,7 @@ function CreateArea(props) {
                 {animationEnabled: true,
                         theme: "light2",
                 title: {
-                    text: "Semantic Analysis Result"
+                    text: "Sentiment Analysis Result"
                 },
                 axisY: {
                     includeZero: true,
