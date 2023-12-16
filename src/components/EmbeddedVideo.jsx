@@ -23,10 +23,7 @@ const EmbeddedVideo = ({ videoUrl }) => {
 
 // Helper function to extract video ID from YouTube URL
 const extractVideoId = (url) => {
-  // Example URL: https://www.youtube.com/watch?v=VIDEO_ID
-  /* eslint-disable-next-line */
   const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:.*v(?:\/|=)|(?:.*\/)?)([^"&?\/\s]*))/);
-
   return match && match[1];
 };
 
