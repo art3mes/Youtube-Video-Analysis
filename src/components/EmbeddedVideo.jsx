@@ -3,7 +3,7 @@ import React from 'react';
 const EmbeddedVideo = ({ videoUrl }) => {
   // Extract video ID from the URL
   const videoId = extractVideoId(videoUrl);
-
+  console.log(videoId);
   // YouTube embed URL
   const embedUrl = `https://www.youtube.com/embed/${videoId}`;
 
@@ -22,9 +22,12 @@ const EmbeddedVideo = ({ videoUrl }) => {
 };
 
 // Helper function to extract video ID from YouTube URL
+// const extractVideoId = (url) => {
+//   const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:.*v(?:\/|=)|(?:.*\/)?)([^"&?\/\s]*))/);
+//   return match && match[1];
+// };
 const extractVideoId = (url) => {
-  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:.*v(?:\/|=)|(?:.*\/)?)([^"&?\/\s]*))/);
+  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:.*v(?:\/|=)|(?:.*\/)?))(.*?)(?:[&?].*)?$/);
   return match && match[1];
 };
-
 export default EmbeddedVideo;

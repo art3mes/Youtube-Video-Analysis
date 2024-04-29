@@ -75,7 +75,7 @@ function CreateArea(props) {
     return (
         <div className="mainContent">
             <div className="main-screen-image"><img src={IMAGE} alt="Logo" /></div>
-            <form className="create-note">
+            <form className="searchBar">
                 <textarea
                     onChange={handleChange}
                     onClick={handleClick}
