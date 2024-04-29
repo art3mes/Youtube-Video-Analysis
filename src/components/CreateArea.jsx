@@ -26,7 +26,8 @@ function CreateArea(props) {
         });
     }
 
-    async function sendData() {
+    async function sendData(event) {
+         event.preventDefault();
         try {
             const response = await axios.get("http://localhost:8000/sentiment", {
                 params: { URL: url.content }
@@ -75,21 +76,25 @@ function CreateArea(props) {
     return (
         <div className="mainContent">
             <div className="main-screen-image"><img src={IMAGE} alt="Logo" /></div>
-            <form className="searchBar">
+            <div className="main-body">
+                <form className="searchBar">
                 <textarea
                     onChange={handleChange}
                     onClick={handleClick}
                     value={url.content}
                     name="content"
                     placeholder="Enter the URL of the YouTube video"
-                    rows={isClicked ? 2 : 1}
+                    rows={1}
                 />
-                <Zoom in={isClicked}>
-                    <Fab onClick={sendData}><TroubleshootIcon /></Fab>
-                </Zoom>
-            </form>
+                </form>
+                <button className="form-button" onClick={sendData}><TroubleshootIcon /></button>
+            </div>
             <div className="result">
-                {responseResult && <div><EmbeddedVideo videoUrl={url.content} /><CanvasJSChart options = {options}/></div>}
+                {responseResult && 
+                <div>
+                    <EmbeddedVideo videoUrl={url.content} />
+                    <CanvasJSChart options = {options}/>
+                </div>}
             </div>
         </div>
     );

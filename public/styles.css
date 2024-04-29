@@ -63,13 +63,17 @@ footer {
     width: 500px;
 }
 
-
+.main-body{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 15px;
+  width: 50%;
+  padding: 15px;
+}
 form.searchBar {
-  position: relative;
-  width:60%;
-  min-width: 220px;
-  max-width: 500px;
-  margin: 30px auto 20px auto;
+  width: 70%;
+  
   background: #fff;
   padding: 15px;
   border-radius: 7px;
@@ -85,42 +89,36 @@ form.searchBar textarea {
   font-family: inherit;
   resize: none;
 }
-form.searchBar button {
-  position: absolute;
+.form-button {
+  border-radius: 7px;
   display: flex;
   align-items: center;
   justify-content: center;
-  right: 18px;
-  bottom: -18px;
   background: #8854d0;
   color: #fff;
   border: none;
-  border-radius: 50%;
-  width: 42px;
-  height: 42px;
+  width: 64px;
+  height: 64px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   outline: none;
+  opacity: 70%;
+  transition: all 0.35s;
 }
-.headerSmall{
-    width: 100%;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} 
-.h1Small{
-  font-size: 4rem;
-} 
+.form-button:hover{
+  cursor: pointer;
+  opacity: 100%;
+}
 .mainContent{
   display: flex;
-  align-items: center;
-  justify-content: center;
+  
   flex-direction: column;
   padding: 1rem;
 }
 .main-screen-image img{
-  width:600px;
+  width:630px;
+  padding: 15px;
+  border-radius: 25px;
 }
 .result {
   display: flex;
