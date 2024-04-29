@@ -15,9 +15,9 @@ function CreateArea(props) {
     const [responseResult, setResponseResult] = useState(null);
     const [options,setOptions]=useState(null);
 
+
     function handleChange(event) {
         const { name, value } = event.target;
-
         setURL((prevValue) => {
             return {
                 ...prevValue,
@@ -34,6 +34,7 @@ function CreateArea(props) {
             });
             console.log(url.content);
             console.log("Response:", response.data.Result);
+
 
             // Update the state with the response data
             setResponseResult(JSON.stringify(response.data.Result));
@@ -89,12 +90,14 @@ function CreateArea(props) {
                 </form>
                 <button className="form-button" onClick={sendData}><TroubleshootIcon /></button>
             </div>
-            <div className="result">
-                {responseResult && 
-                <div>
-                    <EmbeddedVideo videoUrl={url.content} />
-                    <CanvasJSChart options = {options}/>
-                </div>}
+             <div className="result">
+                 {responseResult && (
+                    <div className="result-body">
+                        <EmbeddedVideo videoUrl={url.content} />
+                        <CanvasJSChart options={options} />
+                        
+                    </div>
+                    )}
             </div>
         </div>
     );

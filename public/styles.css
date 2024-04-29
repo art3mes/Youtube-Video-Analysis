@@ -128,10 +128,13 @@ form.searchBar textarea {
 }
 .result {
   display: flex;
-  align-items: center;
-  justify-content: center;
+ 
   position: relative;
   padding-top: 30px;
   padding-bottom: 100px;
+}
+.result-body{
+  display: flex;
+  flex-direction: row;
 }
 
