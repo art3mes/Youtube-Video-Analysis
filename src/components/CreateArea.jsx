@@ -11,9 +11,9 @@ var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 function CreateArea(props) {
     const [url, setURL] = useState({ content: "" });
-    const [isClicked, setClicked] = useState(false);
     const [responseResult, setResponseResult] = useState(null);
     const [options,setOptions]=useState(null);
+    const [showEmbeddedVideo, setShowEmbeddedVideo] = useState(false);
 
 
     function handleChange(event) {
@@ -68,20 +68,23 @@ function CreateArea(props) {
                 console.error("Response headers:", error.response.headers);
             }
         }
+        setShowEmbeddedVideo(true);
     }
 
-    function handleClick() {
-        setClicked(true);
-    }
 
     return (
         <div className="mainContent">
-            <div className="main-screen-image"><img src={IMAGE} alt="Logo" /></div>
+            <div className="main-screen-image">
+                {showEmbeddedVideo ? (
+                    <div className="embedVideo"><EmbeddedVideo videoUrl={url.content}/></div>
+                    ) : (
+                    <img src={IMAGE} alt="Logo" />
+                )}
+            </div>
             <div className="main-body">
                 <form className="searchBar">
                 <textarea
                     onChange={handleChange}
-                    onClick={handleClick}
                     value={url.content}
                     name="content"
                     placeholder="Enter the URL of the YouTube video"
@@ -93,9 +96,7 @@ function CreateArea(props) {
              <div className="result">
                  {responseResult && (
                     <div className="result-body">
-                        <EmbeddedVideo videoUrl={url.content} />
-                        <CanvasJSChart options={options} />
-                        
+                        <CanvasJSChart options={options} />   
                     </div>
                     )}
             </div>

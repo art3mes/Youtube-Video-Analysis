@@ -121,10 +121,13 @@ form.searchBar textarea {
   flex-direction: column;
   padding: 1rem;
 }
-.main-screen-image img{
+.main-screen-image img,.embedVideo{
   width:630px;
   padding: 15px;
   border-radius: 25px;
+}
+.video-container iframe{
+  border-radius: 10px;
 }
 .result {
   display: flex;

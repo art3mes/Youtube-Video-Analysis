@@ -8,10 +8,11 @@ const EmbeddedVideo = ({ videoUrl }) => {
   const embedUrl = `https://www.youtube.com/embed/${videoId}`;
 
   return (
-    <div className="video-container">
+    <div className="video-container"> 
+    {/* has a CSS */}
       <iframe
-        width="560"
-        height="315"
+        width="630"
+        height="332"
         src={embedUrl}
         title="Embedded YouTube Video"
         frameBorder="0"
