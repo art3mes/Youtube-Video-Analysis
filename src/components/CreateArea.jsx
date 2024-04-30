@@ -115,7 +115,9 @@ function CreateArea() {
                     </div>
                 )}
             </div>
-            <div className="mainContent-middle"> <img src={DIVIDER} alt="divider" /></div>
+            <div className="mainContent-middle">
+                {/* <img src={DIVIDER} alt="divider" /> */}
+            </div>
             <div className="mainContent-right">{renderSuggestedVideos()}</div>
         </div>
     );
