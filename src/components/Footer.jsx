@@ -1,5 +1,5 @@
 import React from "react";
-import IMAGE from "../components/uni_logo.png";
+import IMAGE from "../components/images/uni_logo.png";
 
 function Footer() {
   return (

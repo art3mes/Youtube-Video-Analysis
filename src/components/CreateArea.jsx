@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import TroubleshootIcon from '@mui/icons-material/Troubleshoot';
-import IMAGE from "../components/mainImage.png";
-import DIVIDER from "../components/divider.png"
+import IMAGE from "../components/images/mainImage.png";
+import DIVIDER from "../components/images/divider.png"
 import EmbeddedVideo from './EmbeddedVideo';
 import CanvasJSReact from '@canvasjs/react-charts';
 import SuggestedVids from "./SuggestedVids";
