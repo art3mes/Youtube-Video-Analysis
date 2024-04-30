@@ -36,8 +36,7 @@ footer {
   padding:30px 80px ;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 
-  position: relative;
-  
+  position: relative;  
 }
 .footer-text-heading{
   font-weight: 800;
@@ -73,7 +72,7 @@ footer {
 }
 form.searchBar {
   width: 70%;
-  
+  min-width: 400px;
   background: #fff;
   padding: 15px;
   border-radius: 7px;
@@ -99,6 +98,7 @@ form.searchBar textarea {
   border: none;
   width: 64px;
   height: 64px;
+  min-width: 64px;
    box-shadow: 0 1px 5px rgb(138, 137, 137);
   
   cursor: pointer;
@@ -123,21 +123,18 @@ form.searchBar textarea {
 }
 .main-screen-image img,.embedVideo{
   width:630px;
-  padding: 15px;
-  border-radius: 25px;
+  margin: 15px;
+  border-radius: 15px;
 }
 .video-container iframe{
   border-radius: 10px;
 }
-.result {
-  display: flex;
- 
-  position: relative;
-  padding-top: 30px;
-  padding-bottom: 100px;
-}
-.result-body{
-  display: flex;
-  flex-direction: row;
-}
 
+.result{
+  margin: 20px 0 20px 15px;
+  width: 630px;
+ 
+}
+.canvasjs-chart-canvas {
+  border-radius: 15px;
+}

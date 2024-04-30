@@ -40,22 +40,29 @@ function CreateArea(props) {
             setResponseResult(JSON.stringify(response.data.Result));
             setOptions(
                 {animationEnabled: true,
-                        theme: "light2",
+                theme: "light2",
                 title: {
-                    text: "Sentiment Analysis Result"
+                   text: "Sentiment Analysis Result",
+                    verticalAlign: "top", // Align title to the top
+                    padding: 10, // Add margin (spacing) around the title
+                    fontSize: 20,
+                    fontColor: "#1B3C73",
+                    
                 },
                 axisY: {
                     includeZero: true,
                     maximum: 100, // Set the maximum scale to 100
+                    gridThickness: 0.5, // Hide the grid lines on the Y-axis
+                    tickLength: 0, // Hide the tick marks on the Y-axis
                 },
                 data: [{
                     indexLabelFontColor: "#5A5757",
-                            indexLabelPlacement: "outside",
+                    indexLabelPlacement: "outside",
                     type: "column",
                     dataPoints: [
-                    { label: "Positive",  y: response.data.Result.positive },
-                    { label: "Neutral", y: response.data.Result.neutral  },
-                    { label: "Negative", y:response.data.Result.negative  }
+                    { label: "Positive",  y: response.data.Result.positive, color: "#1EAE98" },
+                    { label: "Neutral", y: response.data.Result.neutral, color: "#9AB3F5" },
+                    { label: "Negative", y:response.data.Result.negative, color: "#FA7070"  }
                     ]
                 }]}
             )
@@ -93,15 +100,16 @@ function CreateArea(props) {
                 </form>
                 <button className="form-button" onClick={sendData}><TroubleshootIcon /></button>
             </div>
-             <div className="result">
+             {/* <div className="result"> */}
                  {responseResult && (
-                    <div className="result-body">
+                    <div className="result">
                         <CanvasJSChart options={options} />   
                     </div>
                     )}
-            </div>
+            {/* </div> */}
         </div>
     );
 }
 
 export default CreateArea;
+
