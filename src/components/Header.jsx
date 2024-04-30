@@ -4,7 +4,7 @@ function Header() {
   return (
     <div>
       <header>
-        <h1><AnalyticsIcon/> Comment Scope</h1>
+        <h1><AnalyticsIcon /> Comment Scope</h1>
       </header>
     </div>
   );

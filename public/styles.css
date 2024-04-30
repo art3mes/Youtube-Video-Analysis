@@ -2,9 +2,11 @@
   padding: 0;
   margin: 0;
 }
+
 html {
   font-family: "Montserrat", sans-serif;
 }
+
 body {
   background: #eee;
   padding: 0;
@@ -13,10 +15,8 @@ body {
 }
 
 header {
-  /* background-color: #a55eea; */
- 
-  background: rgb(2,0,36);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(2,0,36,1) 0%, rgba(165,94,234,1) 83%);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(2, 0, 36, 1) 0%, rgba(165, 94, 234, 1) 83%);
   padding: 16px 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 }
@@ -33,37 +33,41 @@ footer {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding:30px 80px ;
+  padding: 30px 80px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
   margin-top: 100px;
 
-  position: relative;  
+  position: relative;
 }
-.footer-text-heading{
+
+.footer-text-heading {
   font-weight: 800;
   font-size: 30px;
   padding-bottom: 20px;
 }
-.footer-text{
+
+.footer-text {
   font-family: "Montserrat", sans-serif;
   color: #454647;
   display: flex;
   font-size: 16px;
   line-height: 30px;
   flex-direction: column;
-  
+
 }
-.footer-text-bottom{
+
+.footer-text-bottom {
   font-size: 12px;
   position: absolute;
   bottom: 20px;
   left: 46%;
 }
-.footer-uni img{
-    width: 500px;
+
+.footer-uni img {
+  width: 500px;
 }
 
-.main-body{
+.main-body {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -71,6 +75,7 @@ footer {
   width: 50%;
   padding: 15px;
 }
+
 form.searchBar {
   min-width: 520px;
   background: #fff;
@@ -78,6 +83,7 @@ form.searchBar {
   border-radius: 7px;
   box-shadow: 0 1px 5px rgb(138, 137, 137);
 }
+
 form.searchBar input,
 form.searchBar textarea {
   width: 100%;
@@ -88,6 +94,7 @@ form.searchBar textarea {
   font-family: inherit;
   resize: none;
 }
+
 .form-button {
   border-radius: 7px;
   display: flex;
@@ -99,61 +106,67 @@ form.searchBar textarea {
   width: 64px;
   height: 64px;
   min-width: 64px;
-   box-shadow: 0 1px 5px rgb(138, 137, 137);
-  
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
+
   cursor: pointer;
   outline: none;
 
   transition: all 0.35s;
 }
-.form-button:hover{
+
+.form-button:hover {
   cursor: pointer;
 
   box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.26);
 }
+
 .form-button:active {
-    transition: .2s;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  transition: .2s;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
 
-.mainContent{
+.mainContent {
   display: flex;
   flex-direction: row;
 }
-.mainContent-left{
+
+.mainContent-left {
   display: flex;
   flex-direction: column;
   padding: 2rem 0 0 2rem;
 }
-.main-screen-image img,.embedVideo{
-  width:630px;
+
+.main-screen-image img,
+.embedVideo {
+  width: 630px;
   margin: 15px;
   border-radius: 15px;
 }
-.video-container iframe{
+
+.video-container iframe {
   border-radius: 10px;
   border-style: none;
 }
 
-.result{
+.result {
   margin: 20px 0 20px 15px;
   width: 630px;
- 
+
 }
+
 .canvasjs-chart-canvas {
   border-radius: 15px;
 }
 
 
-.suggestedVideo-body{
-  
-}
-.suggestedVideo iframe{
+.suggestedVideo-body {}
+
+.suggestedVideo iframe {
   border-radius: 10px;
   border-style: none;
 }
 
-.suggestedVideoURL{
+.suggestedVideoURL {
   margin: 5px 0 20px 0;
   background-color: red;
   display: flex;
@@ -171,7 +184,7 @@ form.searchBar textarea {
 
 
 /* createarea */
-.mainContent-right{
+.mainContent-right {
   margin: 50px 0 0 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -181,7 +194,7 @@ form.searchBar textarea {
   height: fit-content;
 }
 
-.mainContent-middle img{
+.mainContent-middle img {
   width: 80px;
   height: 400px;
   margin-left: -20px;
