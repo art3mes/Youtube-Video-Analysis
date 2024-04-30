@@ -4,6 +4,7 @@ import Zoom from '@mui/material/Zoom';
 import axios from 'axios';
 import TroubleshootIcon from '@mui/icons-material/Troubleshoot';
 import IMAGE from "../components/mainImage.png";
+import DIVIDER from "../components/divider.png"
 import EmbeddedVideo from './EmbeddedVideo';
 import CanvasJSReact from '@canvasjs/react-charts';
 import SuggestedVids from "./SuggestedVids";
@@ -114,6 +115,7 @@ function CreateArea(props) {
                 </div>
                 )}
             </div>
+            <div className="mainContent-middle"> <img src={DIVIDER} alt="divider" /></div>
             <div className="mainContent-right">{renderSuggestedVideos()}</div>
         </div>
     );

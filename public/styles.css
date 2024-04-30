@@ -35,6 +35,7 @@ footer {
   align-items: center;
   padding:30px 80px ;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  margin-top: 100px;
 
   position: relative;  
 }
@@ -121,9 +122,8 @@ form.searchBar textarea {
 }
 .mainContent-left{
   display: flex;
-  
   flex-direction: column;
-  padding: 1rem;
+  padding: 2rem 0 0 2rem;
 }
 .main-screen-image img,.embedVideo{
   width:630px;
@@ -132,6 +132,7 @@ form.searchBar textarea {
 }
 .video-container iframe{
   border-radius: 10px;
+  border-style: none;
 }
 
 .result{
@@ -149,6 +150,7 @@ form.searchBar textarea {
 }
 .suggestedVideo iframe{
   border-radius: 10px;
+  border-style: none;
 }
 
 .suggestedVideoURL{
@@ -158,23 +160,30 @@ form.searchBar textarea {
 
   align-items: center;
   border-radius: 7px;
-  background-color: #FEFDED;
+  background-color: #d7b6ff;
   border-style: solid;
   border-width: 1px;
   border-color: #912BBC;
   padding: 10px;
   font-size: 12px;
-  color: #1F2544;
+  color: #171c34;
 }
 
 
 /* createarea */
 .mainContent-right{
-  margin: 30px 0 0 30px;
+  margin: 50px 0 0 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-row: auto auto;
   grid-column-gap: 20px;
   grid-row-gap: 10px;
   height: fit-content;
+}
+
+.mainContent-middle img{
+  width: 80px;
+  height: 400px;
+  margin-left: -20px;
+  margin-top: 250px;
 }
