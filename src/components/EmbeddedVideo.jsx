@@ -15,7 +15,6 @@ const EmbeddedVideo = ({ videoUrl }) => {
         height="332"
         src={embedUrl}
         title="Embedded YouTube Video"
-        frameBorder="0"
         allowFullScreen
       ></iframe>
     </div>

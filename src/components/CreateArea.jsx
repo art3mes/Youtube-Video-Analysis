@@ -6,6 +6,7 @@ import TroubleshootIcon from '@mui/icons-material/Troubleshoot';
 import IMAGE from "../components/mainImage.png";
 import EmbeddedVideo from './EmbeddedVideo';
 import CanvasJSReact from '@canvasjs/react-charts';
+import SuggestedVids from "./SuggestedVids";
 
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
@@ -14,7 +15,9 @@ function CreateArea(props) {
     const [responseResult, setResponseResult] = useState(null);
     const [options,setOptions]=useState(null);
     const [showEmbeddedVideo, setShowEmbeddedVideo] = useState(false);
-
+    const suggestedVideoURLs = ["https://www.youtube.com/watch?v=iRAXbyPUmMs", "https://www.youtube.com/watch?v=nFnytqPhH9E",
+                                    "https://www.youtube.com/watch?v=S1tFT4smd6E", "https://www.youtube.com/watch?v=Xzv84ZdtlE0","https://www.youtube.com/watch?v=iRAXbyPUmMs", "https://www.youtube.com/watch?v=nFnytqPhH9E",
+                                    "https://www.youtube.com/watch?v=S1tFT4smd6E", "https://www.youtube.com/watch?v=Xzv84ZdtlE0"];
 
     function handleChange(event) {
         const { name, value } = event.target;
@@ -77,36 +80,41 @@ function CreateArea(props) {
         }
         setShowEmbeddedVideo(true);
     }
-
+    const renderSuggestedVideos = () => {
+        return suggestedVideoURLs.map((videoURL, index) => (
+            <SuggestedVids key={index} videoURL={videoURL} />
+        ));
+    };
 
     return (
         <div className="mainContent">
-            <div className="main-screen-image">
+            <div className="mainContent-left">
+                <div className="main-screen-image">
                 {showEmbeddedVideo ? (
                     <div className="embedVideo"><EmbeddedVideo videoUrl={url.content}/></div>
                     ) : (
                     <img src={IMAGE} alt="Logo" />
                 )}
+                </div>
+                <div className="main-body">
+                    <form className="searchBar">
+                    <textarea
+                        onChange={handleChange}
+                        value={url.content}
+                        name="content"
+                        placeholder="Enter the URL of the YouTube video"
+                        rows={1}
+                    />
+                    </form>
+                    <button className="form-button" onClick={sendData}><TroubleshootIcon /></button>
+                </div>
+                {responseResult && (
+                <div className="result">
+                    <CanvasJSChart options={options} />   
+                </div>
+                )}
             </div>
-            <div className="main-body">
-                <form className="searchBar">
-                <textarea
-                    onChange={handleChange}
-                    value={url.content}
-                    name="content"
-                    placeholder="Enter the URL of the YouTube video"
-                    rows={1}
-                />
-                </form>
-                <button className="form-button" onClick={sendData}><TroubleshootIcon /></button>
-            </div>
-             {/* <div className="result"> */}
-                 {responseResult && (
-                    <div className="result">
-                        <CanvasJSChart options={options} />   
-                    </div>
-                    )}
-            {/* </div> */}
+            <div className="mainContent-right">{renderSuggestedVideos()}</div>
         </div>
     );
 }

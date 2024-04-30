@@ -71,8 +71,7 @@ footer {
   padding: 15px;
 }
 form.searchBar {
-  width: 70%;
-  min-width: 400px;
+  min-width: 520px;
   background: #fff;
   padding: 15px;
   border-radius: 7px;
@@ -115,7 +114,12 @@ form.searchBar textarea {
     transition: .2s;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
+
 .mainContent{
+  display: flex;
+  flex-direction: row;
+}
+.mainContent-left{
   display: flex;
   
   flex-direction: column;
@@ -137,4 +141,40 @@ form.searchBar textarea {
 }
 .canvasjs-chart-canvas {
   border-radius: 15px;
+}
+
+
+.suggestedVideo-body{
+  
+}
+.suggestedVideo iframe{
+  border-radius: 10px;
+}
+
+.suggestedVideoURL{
+  margin: 5px 0 20px 0;
+  background-color: red;
+  display: flex;
+
+  align-items: center;
+  border-radius: 7px;
+  background-color: #FEFDED;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #912BBC;
+  padding: 10px;
+  font-size: 12px;
+  color: #1F2544;
+}
+
+
+/* createarea */
+.mainContent-right{
+  margin: 30px 0 0 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row: auto auto;
+  grid-column-gap: 20px;
+  grid-row-gap: 10px;
+  height: fit-content;
 }
