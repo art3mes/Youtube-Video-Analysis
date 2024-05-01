@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import TroubleshootIcon from '@mui/icons-material/Troubleshoot';
 import IMAGE from "../components/images/mainImage.png";
-import DIVIDER from "../components/images/divider.png"
+//import DIVIDER from "../components/images/divider.png"
 import EmbeddedVideo from './EmbeddedVideo';
 import CanvasJSReact from '@canvasjs/react-charts';
 import SuggestedVids from "./SuggestedVids";
@@ -14,9 +14,15 @@ function CreateArea() {
     const [responseResult, setResponseResult] = useState(null);
     const [options, setOptions] = useState(null);
     const [showEmbeddedVideo, setShowEmbeddedVideo] = useState(false);
-    const suggestedVideoURLs = ["https://www.youtube.com/watch?v=iRAXbyPUmMs", "https://www.youtube.com/watch?v=nFnytqPhH9E",
-        "https://www.youtube.com/watch?v=S1tFT4smd6E", "https://www.youtube.com/watch?v=Xzv84ZdtlE0", "https://www.youtube.com/watch?v=iRAXbyPUmMs", "https://www.youtube.com/watch?v=nFnytqPhH9E",
-        "https://www.youtube.com/watch?v=S1tFT4smd6E", "https://www.youtube.com/watch?v=Xzv84ZdtlE0"];
+    // const suggestedVideoURLs = ["https://www.youtube.com/watch?v=iRAXbyPUmMs", "https://www.youtube.com/watch?v=nFnytqPhH9E",
+    //     "https://www.youtube.com/watch?v=S1tFT4smd6E", "https://www.youtube.com/watch?v=Xzv84ZdtlE0", "https://www.youtube.com/watch?v=YWQjWdQ6tOA", "https://www.youtube.com/watch?v=onWEPV5IHeI",
+    //     "https://www.youtube.com/watch?v=pzmoP8ehZiM", "https://www.youtube.com/watch?v=Aoo9l_w2pq4"];
+    const [suggestedVideoURLs, setSuggestedVideoURLs] = useState([]);
+    useEffect(() => {  //run once when the website is loaded
+        let ignore = false;
+        if (!ignore) getPopularVideos()
+        return () => { ignore = true; }
+    }, []);
 
     function handleChange(event) {
         const { name, value } = event.target;
@@ -80,6 +86,24 @@ function CreateArea() {
             }
         }
         setShowEmbeddedVideo(true);
+    }
+
+    async function getPopularVideos() {
+        try {
+            const response = await axios.get("http://localhost:8000/PopularVideos");
+            console.log("Response url:", response.data.url);
+            console.log(response)
+            setSuggestedVideoURLs(response.data.url);
+
+        } catch (error) {
+            console.error("Error:", error.message);
+
+            if (error.response) {
+                console.error("Response data:", error.response.data);
+                console.error("Response status:", error.response.status);
+                console.error("Response headers:", error.response.headers);
+            }
+        }
     }
     const renderSuggestedVideos = () => {
         return suggestedVideoURLs.map((videoURL, index) => (
